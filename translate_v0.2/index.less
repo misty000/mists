@@ -1,0 +1,36 @@
+body {
+	font-size: 16px;
+}
+
+.modal {
+	border-radius: 0px;
+}
+
+.hero-unit {
+	border-radius: 0px;
+}
+
+#main-container {
+	#raw {
+		[editable] {
+			&:hover {
+				background: lightcyan;
+			}
+		}
+		&.editing {
+			color: lightgray;
+			.editing {
+				color: #000000;
+				background: lightyellow;
+			}
+		}
+	}
+}
+
+#result {
+	width: 800px;
+	margin-left: -400px;
+	textarea {
+		height: 400px;
+	}
+}

@@ -1,0 +1,20 @@
+.login-form {
+  top: 50px;
+  left: 50px;
+  width: 313px;
+  background: #34495e;
+  color: #ffffff;
+  border-radius: 0px;
+  padding: 23px;
+  margin-top: 50px;
+}
+.login-form:before {
+  border-color: transparent transparent #34495e transparent;
+  border-width: 12px;
+  left: auto;
+  right: 12px;
+  top: -24px;
+  position: absolute;
+  z-index: 1000;
+  display: block;
+}

@@ -1,0 +1,24 @@
+@base: #34495e;
+@inverse: #fff;
+
+.login-form {
+	top: 50px;
+	left: 50px;
+	width: 313px;
+	background: @base;
+	color: @inverse;
+	border-radius: 0px;
+	padding: 23px;
+	margin-top: 50px;
+	&:before {
+		border-color: transparent transparent @base transparent;
+		border-width: 12px;
+		left: auto;
+		right: 12px;
+		top: -24px;
+		position: absolute;
+		z-index: 1000;
+		display: block;
+	}
+}
+

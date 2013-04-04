@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>HTML文档辅助翻译工具（施工中...）</title>
+	<link rel="stylesheet" type="text/css" href="translate.css" media="all"/>
+</head>
+<body>
+<div><a href="http://mists.cloudfoundry.com/">回到首页</a></div>
+<section id="step1">
+	<p>第一步</p>
+	<fieldset>
+		<legend>输入HTML文档</legend>
+		<textarea rows="15" name="htmldoc">
+		</textarea>
+		<button id="startBtn">开始翻译</button>
+		<p>文档的HTML代码，可以通过firebug等工具从页面中获得。</p>
+	</fieldset>
+</section>
+
+<section id="step2">
+	<p>第二步</p>
+	<div><button id="gotoStep1Btn">上一步</button></div>
+	<div>
+		<p>单击（左侧：对照模式）文本开始翻译。</p>
+		<p>翻译一半怎么办？单击‘显示中间代码按钮’，把中间代码保存到本地，下次只要在第一步中导入中间代码即可继续翻译。</p>
+		<label for="autoSave">
+			<input type="checkbox" id="autoSave" checked/>
+			自动保存
+		</label>
+		<label for="compare">
+			<input type="checkbox" id="compare"/>
+			对照
+		</label>
+		<button id="showResult">显示中间代码</button>
+		<button id="hideResult">隐藏中间代码</button>
+	</div>
+	<section id="myModal">
+		<fieldset>
+			<textarea></textarea>
+		</fieldset>
+	</section>
+
+	<div class="clearfix"></div>
+	<div id="main">
+		<div id="trans-original">
+		</div>
+		<div id="trans-target">
+		</div>
+	</div>
+</section>
+
+<div id="input">
+	<fieldset>
+		<div>
+			<textarea name="" id="textarea"></textarea>
+		</div>
+		<div>
+			<button id="saveBtn">Save (Ctrl+Enter)</button>
+			<button id="cancelBtn">Cancel (Esc)</button>
+		</div>
+	</fieldset>
+</div>
+
+<script type="text/javascript" src="../js/vendor/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="translate.js"></script>
+</body>
+</html>

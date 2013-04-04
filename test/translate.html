@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="styles/translate.css" media="all"/>
+</head>
+<body>
+<header>
+	<label for="autoSave">
+		<input type="checkbox" id="autoSave" checked/>
+		自动保存
+	</label>
+	<label for="compare">
+		<input type="checkbox" id="compare"/>
+		对照
+	</label>
+	<button id="showResult">显示中间代码</button>
+	<button id="hideResult">隐藏中间代码</button>
+</header>
+<section id="myModal">
+	<fieldset>
+		<textarea></textarea>
+	</fieldset>
+</section>
+<div id="input">
+	<fieldset>
+		<div>
+			<textarea name="" id="textarea"></textarea>
+		</div>
+		<div>
+			<button id="saveBtn">Save</button>
+			<button id="cancelBtn">Cancel</button>
+		</div>
+	</fieldset>
+</div>
+<section id="main">
+	<div id="trans-original">
+	</div>
+	<div id="trans-target">
+	</div>
+</section>
+
+
+<script type="text/javascript" src="../js/vendor/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="scripts/translate.js"></script>
+</body>
+</html>
