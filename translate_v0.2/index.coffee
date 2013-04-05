@@ -384,11 +384,3 @@ $ ->
 		updateProgress()
 	, 'html')
 
-
-
-
-
-
-
-
-
