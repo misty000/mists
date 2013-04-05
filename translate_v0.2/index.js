@@ -484,7 +484,8 @@
   $(function() {
     return $.get('translate.txt', function(data) {
       loadDoc(data);
-      return updateCompare();
+      updateCompare();
+      return updateProgress();
     }, 'html');
   });
 

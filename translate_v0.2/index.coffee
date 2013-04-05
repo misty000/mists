@@ -381,6 +381,7 @@ $ ->
 	$.get('translate.txt', (data)->
 		loadDoc(data)
 		updateCompare()
+		updateProgress()
 	, 'html')
 
 
