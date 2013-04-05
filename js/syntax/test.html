@@ -9,10 +9,26 @@
 	<script type="text/javascript">
 		SyntaxHighlighter.all()
 	</script>
+	<style type="text/css">
+		.syntaxhighlighter .container:before {
+			display: block;
+		}
+	</style>
 </head>
 <body>
 <pre class="brush:html;gutter:true;">&lt;link rel="Stylesheet" type="text/css" href="prettify/prettify.css" /&gt;
 &lt;script type="text/javascript"  src="prettify/prettify.js"&gt;&lt;/script&gt;
 </pre>
+<pre id="code" class="brush:html;"></pre>
+<script type="text/javascript" src="../vendor/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="../mists/jquery.extend.js"></script>
+<script type="text/javascript">
+	function html(s) {
+		return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+	}
+	console.log(html($('<div><p></p></div>').html()))
+	console.log($('<div><p></p></div>').escapedHtml())
+	$('#code').html($('<div><p></p></div>').escapedHtml())
+</script>
 </body>
 </html>

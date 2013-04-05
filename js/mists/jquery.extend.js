@@ -26,7 +26,15 @@
        Applies a function f to all elements of this list.
     */
 
-    foreach: jQuery.fn.each
+    foreach: jQuery.fn.each,
+    escapedHtml: function() {
+      var html;
+
+      html = function(s) {
+        return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      };
+      return html(this.html());
+    }
   });
 
 }).call(this);

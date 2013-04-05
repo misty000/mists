@@ -18,4 +18,8 @@ jQuery.fn.extend({
     Applies a function f to all elements of this list.
 	###
 	foreach: jQuery.fn.each
+	escapedHtml: ->
+		html = (s)->
+			s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+		html(@html())
 })
