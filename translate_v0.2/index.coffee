@@ -352,7 +352,7 @@ $ ->
 $ ->
 	#TODO
 	###do###
-	->
+	do ->
 		$input = $('#input')
 		$input
 			.on 'click', 'button.btn-start', ->
@@ -377,10 +377,10 @@ $ ->
 			return
 
 #Debug
-$ ->
-	$.get('translate.txt', (data)->
-		loadDoc(data)
-		updateCompare()
-		updateProgress()
-	, 'html')
+#$ ->
+#	$.get('translate.txt', (data)->
+#		loadDoc(data)
+#		updateCompare()
+#		updateProgress()
+#	, 'html')
 

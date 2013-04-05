@@ -472,21 +472,13 @@
         backdrop: 'static',
         keyboard: false
       });
-    });
+    })();
     return $('#result').on('show', function() {
       $('textarea', this).val(parser.clean($raw.clone()).children().html());
       $('body').css('overflow', 'hidden');
     }).on('hidden', function() {
       $('body').css('overflow', 'auto');
     });
-  });
-
-  $(function() {
-    return $.get('translate.txt', function(data) {
-      loadDoc(data);
-      updateCompare();
-      return updateProgress();
-    }, 'html');
   });
 
 }).call(this);
