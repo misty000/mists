@@ -38,11 +38,32 @@
 </p>
 <![endif]-->
 
+<!-- 网页内容放在这里 -->
+<!-- Input Modal -->
+<div id="input" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="inputLabel">
+	<div class="modal-header">
+		<h3 id="inputLabel">请输入HTML文档
+			<small><a href="../index.html" class="home">回到主页</a></small>
+		</h3>
+	</div>
+	<div class="modal-body">
+		<textarea class="input-block-level"></textarea>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary btn-start">开始翻译</button>
+	</div>
+</div>
 
-<!-- 网页主题内容放在这里 -->
 <div class="container-fluid">
 	<div class="row-fluid">
-		<a href="#result" role="button" class="btn btn-info" data-toggle="modal">查看中间代码</a>
+		<div class="span6">
+			<a href="../index.html" class="btn btn-primary span4">回到主页</a>
+			<button id="quit" class="btn btn-danger span4">退出翻译</button>
+			<a href="#result" role="button" class="btn btn-info span4" data-toggle="modal">查看中间代码</a>
+		</div>
+		<div class="span6"></div>
+	</div>
+	<div class="row-fluid">
 		<!--<label class="checkbox" for="checkbox1">-->
 		<!--<input type="checkbox" value="" id="checkbox1">-->
 		<!--自动保存-->
@@ -50,14 +71,16 @@
 	</div>
 	<div class="row-fluid" id="main-container">
 		<section class="span6" id="raw">原文</section>
-		<section class="span6" id="processed">译文</section>
+		<section class="span6" id="processed">
+			<article></article>
+		</section>
 	</div>
 </div>
-<!-- Modal -->
-<div id="result" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<!-- Result Modal -->
+<div id="result" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="resultLabel" aria-hidden="true">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-		<h3 id="myModalLabel">中间代码</h3>
+		<h3 id="resultLabel">中间代码</h3>
 	</div>
 	<div class="modal-body">
 		<textarea class="input-block-level"></textarea>

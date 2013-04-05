@@ -2,17 +2,21 @@ body {
 	font-size: 16px;
 }
 
-.modal {
+.modal, .hero-unit {
 	border-radius: 0px;
 }
 
-.hero-unit {
-	border-radius: 0px;
+.home {
+	color: #808080;
+	font-size: 18px;
+	text-decoration: none;
+	margin-left: 10px;
 }
 
 #main-container {
 	#raw {
 		[editable] {
+			transition: all .3s ease-out;
 			&:hover {
 				background: lightcyan;
 			}
@@ -25,12 +29,35 @@ body {
 			}
 		}
 	}
+	#processed {
+		height: 100%;
+		article {
+			> * {
+				position: absolute;
+				overflow: auto;
+			}
+			.hover {
+				background: lightcyan;
+			}
+		}
+	}
+	article {
+		position: relative;
+	}
 }
 
-#result {
+#input, #result {
 	width: 800px;
 	margin-left: -400px;
 	textarea {
 		height: 400px;
+	}
+}
+
+@media screen and (max-width: 770px) {
+	#main-container {
+		#processed {
+			display: none;
+		}
 	}
 }
