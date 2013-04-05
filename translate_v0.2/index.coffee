@@ -278,7 +278,7 @@ updateCompare =->
 updateProgress = ->
 	total = $('[editable]', $raw).length
 	done = $('[' + ATTR_TRANSLATE_KEY + ']', $raw).length
-	progress.update(done / total)
+	progress.update(done / total * 100)
 
 #Init
 $ ->

@@ -373,7 +373,7 @@
 
     total = $('[editable]', $raw).length;
     done = $('[' + ATTR_TRANSLATE_KEY + ']', $raw).length;
-    return progress.update(done / total);
+    return progress.update(done / total * 100);
   };
 
   $(function() {
