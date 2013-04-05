@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Hello SyntaxHighlighter</title>
+	<script type="text/javascript" src="scripts/shCore.js"></script>
+	<script type="text/javascript" src="scripts/shBrushXml.js"></script>
+	<link type="text/css" rel="stylesheet" href="styles/shCoreDefault.css"/>
+	<!--<script type="text/javascript">SyntaxHighlighter.all();</script>-->
+</head>
+<body>
+<h1>Hello SyntaxHighlighter</h1>
+<div style="height: 400px;overflow: auto">
+	<pre id="code" class="brush: html;"></pre>
+</div>
+<script type="text/javascript" src="../vendor/jquery-1.9.1.js"></script>
+<script type="text/javascript">
+	console.log(2)
+	$.get('translate.txt', function (data) {
+		console.log(1)
+		$('#code').text(data)
+	}, 'html')
+</script>
+</body>
+</html>

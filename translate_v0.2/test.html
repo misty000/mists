@@ -6,26 +6,22 @@
 	<link rel="stylesheet" href="../styles/bootstrap.css"/>
 </head>
 <body>
-<!-- Button to trigger modal -->
-<a href="#myModal" role="button" class="btn" data-toggle="modal">查看演示案例</a>
-
-<!-- Modal -->
-<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-		<h3 id="myModalLabel">Modal header</h3>
-	</div>
-	<div class="modal-body">
-		<p>One fine body…</p>
-	</div>
-	<div class="modal-footer">
-		<button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
-		<button class="btn btn-primary">Save changes</button>
-	</div>
-</div>
+<textarea id="a1" cols="30" rows="10"></textarea>
+<button id="copy-button" class="btn">Copy</button>
 
 <script src="../js/vendor/jquery-1.9.1.js"></script>
-<script src="../js/vendor/bootstrap-2.3.1.min.js"></script>
+<script src="../js/clip/jquery.zclip.js"></script>
+<script>
+$(function(){
+	$("#copy-button").zclip({
+		path: '../js/clip/ZeroClipboard.swf',
+		copy: '12345',
+		beforeCopy:function(){
+			console.log(2)
+		}
+	})
+})
+</script>
 <!--
 <script src="http://cdnjs.bootcss.com/ajax/libs/twitter-bootstrap/2.3.1/js/bootstrap-2.3.1.min.js"></script>
 -->

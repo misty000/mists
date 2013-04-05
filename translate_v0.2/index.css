@@ -11,6 +11,18 @@ body {
   text-decoration: none;
   margin-left: 10px;
 }
+header {
+  background: rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  text-align: center;
+  font-size: 14px;
+}
+header .progress {
+  margin-bottom: 10px;
+}
+#main {
+  margin-top: 70px;
+}
 #main-container #raw [editable] {
   transition: all 0.3s ease-out;
 }

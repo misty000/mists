@@ -3,6 +3,8 @@ ATTR_TRANSLATE_KEY = 'data-translate'
 
 DATA_COMPARE_KEY = 'trans-compare'
 
+#=====================================================
+
 class Parser
 	constructor: ->
 		__eachCallback = ->
@@ -99,7 +101,18 @@ class Parser
 		__clean($data)
 		__clean($('[editable]', $data))
 		__clean($('[class]', $data))
-		return $data
+		$data
+
+	convert: ($data)->
+		$('[editable]', $data).foreach(->
+			$this = $(this)
+			val = $.trim($this.attr(ATTR_TRANSLATE_KEY) ? '')
+			return if val is ''
+			$this.html(val)
+			$this.removeAttr(ATTR_TRANSLATE_KEY)
+		)
+		@clean($data)
+
 
 	@nonsupport: ['pre']
 
@@ -189,15 +202,42 @@ class Editor
 	isEditing: ->
 		@$currElem?
 
+#=========================================================================
+
+class Progress
+	constructor: ->
+		__$bar= $('<div class="bar bar-success"></div>')
+		__$text = $('<div>当前进度：<span>0</span>%</div>')
+		__$value = $('span', __$text)
+		__$progress = $('<div class="progress"/>')
+			.append(__$bar)
+			.add(__$text)
+		@render = (selector)->
+			return unless selector?
+			$obj = $(selector)
+			$obj.html(__$progress)
+		@update = (value)->
+			v = toDecimal(value)
+			__$value.text(v)
+			__$bar.css('width', v + '%')
+	render: null
+	update: null
+
 
 #=========================================================================
+
 $main = null
 $raw = null
 $processed = null
 
-
 parser = new Parser
 editor = new Editor
+progress = new Progress
+
+toDecimal = (x)->
+	f = parseFloat(x)
+	return 0 if isNaN(f)
+	Math.round(f * 100) / 100
 
 loadDoc = (data = null)->
 	doc = parser.parse(data)
@@ -232,6 +272,14 @@ compare = ($target)->
 		.height(h)
 		.offset(offset)
 
+updateCompare =->
+	$('[editable]', $raw).foreach -> compare($(this))
+
+updateProgress = ->
+	total = $('[editable]', $raw).length
+	done = $('[' + ATTR_TRANSLATE_KEY + ']', $raw).length
+	progress.update(done / total)
+
 #Init
 $ ->
 	$main = $('#main-container')
@@ -247,7 +295,9 @@ $ ->
 			return
 		.on 'saved', (e, param)->
 			compare(param.$target)
+			updateProgress()
 			return
+	progress.render($('header'))
 
 #Bind Event
 $ ->
@@ -259,9 +309,7 @@ $ ->
 				clearTimeout(resizeTimeout)
 				resizeTimeout = null
 			resizeTimeout = setTimeout(->
-				$('[editable]', $raw).foreach(->
-					compare($(this))
-				)
+				updateCompare()
 			, 100)
 	$('body').on 'keypress', (e)->
 		if e.keyCode is 13 and e.ctrlKey
@@ -295,18 +343,23 @@ $ ->
 	$('#quit').click ->
 		$input = $('#input')
 		$input.modal('show')
+		$raw.html('')
 		$text = $('textarea', $input)
 		$text.val('')
 		$text.get(0).focus()
 
 #Modal
 $ ->
+	#TODO
+	###do###
 	->
 		$input = $('#input')
 		$input
 			.on 'click', 'button.btn-start', ->
 				val = $('textarea', $input).val()
 				loadDoc(val)
+				updateCompare()
+				updateProgress()
 				$input.modal('hide')
 				return
 			.modal(
@@ -327,6 +380,7 @@ $ ->
 $ ->
 	$.get('translate.txt', (data)->
 		loadDoc(data)
+		updateCompare()
 	, 'html')
 
 
