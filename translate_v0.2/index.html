@@ -13,7 +13,7 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title></title>
+	<title>辅助翻译工具 v0.2</title>
 	<!-- Loading Bootstrap -->
 	<link rel="stylesheet" href="../styles/bootstrap.css" media="all"/>
 	<!-- Loading Flat UI -->
@@ -69,7 +69,7 @@
 			<a href="#result" role="button" class="btn btn-info span4" data-toggle="modal">查看中间代码</a>
 		</div>
 		<div class="span6">
-			<button id="translation" class="btn span4">查看译文</button>
+			<a href="#translation" role="button" class="btn span4" data-toggle="modal">查看译文</a>
 		</div>
 	</div>
 	<div class="row-fluid">
@@ -93,6 +93,19 @@
 	</div>
 	<div class="modal-body">
 		<textarea class="input-block-level"></textarea>
+	</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
+	</div>
+</div>
+<!-- Result Modal -->
+<div id="translation" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="translationLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="translationLabel">译文</h3>
+	</div>
+	<div class="modal-body">
+		<section></section>
 	</div>
 	<div class="modal-footer">
 		<button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>

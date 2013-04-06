@@ -34,6 +34,10 @@ header {
 			&:hover {
 				background: lightcyan;
 			}
+			border-right: 1px solid darkred;
+		}
+		[data-translate] {
+			border-right: 1px solid transparent;
 		}
 		&.editing {
 			color: lightgray;
@@ -60,11 +64,17 @@ header {
 	}
 }
 
-#input, #result {
+#input, #result, #translation {
 	width: 800px;
 	margin-left: -400px;
 	textarea {
 		height: 400px;
+	}
+}
+
+#translation {
+	section {
+		overflow: auto;
 	}
 }
 

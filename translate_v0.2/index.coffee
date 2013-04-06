@@ -243,6 +243,9 @@ loadDoc = (data = null)->
 	doc = parser.parse(data)
 	$raw.html(doc)
 
+clearCompare = ->
+	$processed.empty()
+
 removeCompare = ($target)->
 	return unless $target?
 	$target = $($target) unless $target.jquery?
@@ -309,6 +312,7 @@ $ ->
 				clearTimeout(resizeTimeout)
 				resizeTimeout = null
 			resizeTimeout = setTimeout(->
+				clearCompare()
 				updateCompare()
 			, 100)
 	$('body').on 'keypress', (e)->
@@ -320,6 +324,9 @@ $ ->
 			return false
 
 	$main.on 'click', 'a', ->
+		false
+
+	$('#translation').on 'click', 'section', ->
 		false
 
 	$raw
@@ -358,6 +365,7 @@ $ ->
 			.on 'click', 'button.btn-start', ->
 				val = $('textarea', $input).val()
 				loadDoc(val)
+				clearCompare()
 				updateCompare()
 				updateProgress()
 				$input.modal('hide')
@@ -375,6 +383,16 @@ $ ->
 		.on 'hidden', ->
 			$('body').css('overflow', 'auto')
 			return
+
+	$('#translation')
+		.on 'show', ->
+			$('section', this).html(parser.convert($raw.clone()).children().html())
+			$('body').css('overflow', 'hidden')
+			return
+		.on 'hidden', ->
+			$('body').css('overflow', 'auto')
+			return
+
 
 #Debug
 #$ ->

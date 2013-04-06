@@ -25,9 +25,13 @@ header .progress {
 }
 #main-container #raw [editable] {
   transition: all 0.3s ease-out;
+  border-right: 1px solid darkred;
 }
 #main-container #raw [editable]:hover {
   background: lightcyan;
+}
+#main-container #raw [data-translate] {
+  border-right: 1px solid transparent;
 }
 #main-container #raw.editing {
   color: lightgray;
@@ -50,13 +54,18 @@ header .progress {
   position: relative;
 }
 #input,
-#result {
+#result,
+#translation {
   width: 800px;
   margin-left: -400px;
 }
 #input textarea,
-#result textarea {
+#result textarea,
+#translation textarea {
   height: 400px;
+}
+#translation section {
+  overflow: auto;
 }
 @media screen and (max-width: 770px) {
   #main-container #processed {
